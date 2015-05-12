@@ -93,7 +93,7 @@
 	    	</div>
 
 	    	<div class="col-md-3">
-		    	<div   class="col-md-3" data-spy="affix" data-offset-bottom="100">
+	    		<div id="sidebar" class="side">
 		    		<p class="h5 mtm"> Created by:<p>
 
 					<ul class="avatars">
@@ -120,13 +120,12 @@
 	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 	<!-- Latest compiled and minified JavaScript -->
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
-	<script src="../js/wow.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 
 	<script type="text/javascript">
 		$('#sidebar').affix({
 		  offset: {
-		    top: 100,
+		    top: 0,
 		    bottom: function () {
 		      return (this.bottom = $('.footer').outerHeight(true))
 		    }
@@ -134,8 +133,19 @@
 		})
 	</script>
 
-	<script>
-	 	new WOW().init();
+	<script type="text/javascript">
+		function affixWidth() {
+		    // ensure the affix element maintains it width
+		    var affix = $('.side');
+		    var width = affix.width();
+		    affix.width(width);
+		}
+
+		$(document).ready(function () {
+
+		    affixWidth();
+
+		});
 	</script>
   </body>
 </html>
